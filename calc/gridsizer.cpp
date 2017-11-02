@@ -65,6 +65,69 @@ void GridSizer::onBt2 (wxCommandEvent& WXUNUSED (event)) {
 		valor2 = 2;
 }
 
+void GridSizer::onBt3 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 3;
+	if (nClicks==2)
+		valor2 = 3;
+}
+
+void GridSizer::onBt4 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 4;
+	if (nClicks==2)
+		valor2 = 4;
+}
+
+void GridSizer::onBt5 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 5;
+	if (nClicks==2)
+		valor2 = 5;
+}
+
+void GridSizer::onBt6 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 6;
+	if (nClicks==2)
+		valor2 = 6;
+}
+
+void GridSizer::onBt7 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 7;
+	if (nClicks==2)
+		valor2 = 7;
+}
+
+void GridSizer::onBt8 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 8;
+	if (nClicks==2)
+		valor2 = 8;
+}
+
+void GridSizer::onBt9 (wxCommandEvent& WXUNUSED (event)) {
+	nClicks += 1;
+	cout <<"Hola " << nClicks << endl;
+	if (nClicks==1)
+		valor1 = 9;
+	if (nClicks==2)
+		valor2 = 9;
+}
+
 void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
 	int total = valor1 + valor2;
 	cout << "Resultado suma " << total << endl;
@@ -75,5 +138,12 @@ BEGIN_EVENT_TABLE(GridSizer, wxFrame)
     EVT_BUTTON(1050,  GridSizer::onCls)
     EVT_BUTTON(1001,  GridSizer::onBt1)
     EVT_BUTTON(1002,  GridSizer::onBt2)
+    EVT_BUTTON(1003,  GridSizer::onBt3)
+    EVT_BUTTON(1004,  GridSizer::onBt4)
+    EVT_BUTTON(1005,  GridSizer::onBt5)
+    EVT_BUTTON(1006,  GridSizer::onBt6)
+    EVT_BUTTON(1007,  GridSizer::onBt7)
+    EVT_BUTTON(1008,  GridSizer::onBt8)
+    EVT_BUTTON(1009,  GridSizer::onBt9)
     EVT_BUTTON(1011,  GridSizer::onBtSum)
 END_EVENT_TABLE()
