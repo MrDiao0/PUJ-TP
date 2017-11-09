@@ -137,39 +137,43 @@ void GridSizer::onBt9 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 - valor2;
+	int total = valor1 + valor2;
 	cout << "Resultado suma " << total << endl;
+	nClicks = 0;
 }
 
 void GridSizer::onBtRes (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 + valor2;
+	int total = valor1 - valor2;
 	cout << "Resultado resta " << total << endl;
+	nClicks = 0;
 }
 
 void GridSizer::onBtMul (wxCommandEvent& WXUNUSED (event)) {
 	int total = valor1 * valor2;
 	cout << "Resultado multiplicacion " << total << endl;
+	nClicks = 0;
 }
 
-void GridSizer::onBtSDiv (wxCommandEvent& WXUNUSED (event)) {
+void GridSizer::onBtDiv (wxCommandEvent& WXUNUSED (event)) {
 	int total = valor1 / valor2;
 	cout << "Resultado division " << total << endl;
+	nClicks = 0;
 }
 
-BEGIN_EVENT_TABLE(GridSizer, wxFrame){
-    EVT_BUTTON(1050,  GridSizer::onCls);
-    EVT_BUTTON(1000,  GridSizer::onBt0);
-    EVT_BUTTON(1001,  GridSizer::onBt1);
-    EVT_BUTTON(1002,  GridSizer::onBt2);
-    EVT_BUTTON(1003,  GridSizer::onBt3);
-    EVT_BUTTON(1004,  GridSizer::onBt4);
-    EVT_BUTTON(1005,  GridSizer::onBt5);
-    EVT_BUTTON(1006,  GridSizer::onBt6);
-    EVT_BUTTON(1007,  GridSizer::onBt7);
-    EVT_BUTTON(1008,  GridSizer::onBt8);
-    EVT_BUTTON(1009,  GridSizer::onBt9);
-    EVT_BUTTON(1010,  GridSizer::onBtRes);
-    EVT_BUTTON(1011,  GridSizer::onBtSum);
-    EVT_BUTTON(1012,  GridSizer::onBtMul);
-    EVT_BUTTON(1013,  GridSizer::onBtDiv);
-END_EVENT_TABLE()}
+BEGIN_EVENT_TABLE(GridSizer, wxFrame)
+    EVT_BUTTON(1050,  GridSizer::onCls)
+    EVT_BUTTON(1000,  GridSizer::onBt0)
+    EVT_BUTTON(1001,  GridSizer::onBt1)
+    EVT_BUTTON(1002,  GridSizer::onBt2)
+    EVT_BUTTON(1003,  GridSizer::onBt3)
+    EVT_BUTTON(1004,  GridSizer::onBt4)
+    EVT_BUTTON(1005,  GridSizer::onBt5)
+    EVT_BUTTON(1006,  GridSizer::onBt6)
+    EVT_BUTTON(1007,  GridSizer::onBt7)
+    EVT_BUTTON(1008,  GridSizer::onBt8)
+    EVT_BUTTON(1009,  GridSizer::onBt9)
+    EVT_BUTTON(1010,  GridSizer::onBtRes)
+    EVT_BUTTON(1011,  GridSizer::onBtSum)
+    EVT_BUTTON(1012,  GridSizer::onBtMul)
+    EVT_BUTTON(1013,  GridSizer::onBtDiv)
+END_EVENT_TABLE()
