@@ -12,6 +12,7 @@ public:
   wxTextCtrl *display;
   
   void onCls (wxCommandEvent&);
+  void onBt0 (wxCommandEvent&);
   void onBt1 (wxCommandEvent&);
   void onBt2 (wxCommandEvent&);
   void onBt3 (wxCommandEvent&);
@@ -21,7 +22,10 @@ public:
   void onBt7 (wxCommandEvent&);
   void onBt8 (wxCommandEvent&);
   void onBt9 (wxCommandEvent&);
+  void onBtRes (wxCommandEvent&);
   void onBtSum (wxCommandEvent&);
+  void onBtMul (wxCommandEvent&);
+  void onBtDiv (wxCommandEvent&);
 
 private:
   int valor1;
