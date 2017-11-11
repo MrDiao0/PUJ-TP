@@ -1,5 +1,6 @@
 #include "gridsizer.h"
 #include <string.h>
+#include <sstream>
 #include <iostream>
 using namespace std;
 
@@ -30,7 +31,7 @@ GridSizer::GridSizer(const wxString& title)
   gs->Add(new wxButton(this, 1013, wxT("/")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1014, wxT("Close")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1015, wxT("=")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT("Bck")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1016, wxT("Bck")), 0, wxEXPAND);
   gs->Add(new wxButton(this, -1, wxT(".")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1050, wxT("Cls")), 0, wxEXPAND);
   gs->Add(new wxStaticText(this, -1, wxT("")), 0, wxEXPAND);
@@ -181,7 +182,7 @@ void GridSizer::onBtDiv (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBtClose (wxCommandEvent& WXUNUSED (event)) {
-	destroy();
+	Destroy();
 }
 
 void GridSizer::onBtTot (wxCommandEvent& WXUNUSED (event)) {
@@ -213,6 +214,18 @@ void GridSizer::onBtTot (wxCommandEvent& WXUNUSED (event)) {
 	display->SetValue(resul);
 }
 
+void GridSizer::onBtBck (wxCommandEvent& WXUNUSED (event)) {
+	if (b.size() == 0){
+		a=(string)display->GetValue();
+		if (a.size () > 0)  a.resize (a.size () - 1);
+		display->SetValue(a);
+	}else{
+		b=(string)display->GetValue();
+		if (b.size () > 0)  b.resize (b.size () - 1);
+		display->SetValue(b);
+	}
+}
+
 BEGIN_EVENT_TABLE(GridSizer, wxFrame)
     EVT_BUTTON(1050,  GridSizer::onCls)
     EVT_BUTTON(1000,  GridSizer::onBt0)
@@ -231,4 +244,5 @@ BEGIN_EVENT_TABLE(GridSizer, wxFrame)
     EVT_BUTTON(1013,  GridSizer::onBtDiv)
     EVT_BUTTON(1014,  GridSizer::onBtClose)
     EVT_BUTTON(1015,  GridSizer::onBtTot)
+    EVT_BUTTON(1016,  GridSizer::onBtBck)
 END_EVENT_TABLE()

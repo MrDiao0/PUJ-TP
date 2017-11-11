@@ -1,4 +1,5 @@
 #include <wx/wx.h>
+#include <string.h>
 #include <iostream>
 using namespace std;
 
@@ -27,13 +28,18 @@ public:
   void onBtMul (wxCommandEvent&);
   void onBtDiv (wxCommandEvent&);
   void onBtClose (wxCommandEvent&);
-  void onBtTot (wxCommandEvent);
+  void onBtTot (wxCommandEvent&);
+  void onBtBck (wxCommandEvent&);
 
 private:
+  string a;
+  string b;
   int valor1;
   int valor2;
-  string operacion;
+  string operando;
+  int operando1;
+  int operando2;
   int nClicks;
-  	
+  float total;
   DECLARE_EVENT_TABLE()
 };
