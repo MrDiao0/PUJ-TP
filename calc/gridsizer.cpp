@@ -1,4 +1,5 @@
 #include "gridsizer.h"
+#include <string.h>
 #include <iostream>
 using namespace std;
 
@@ -13,26 +14,26 @@ GridSizer::GridSizer(const wxString& title)
   sizer->Add(display, 0, wxEXPAND | wxTOP | wxBOTTOM, 4);
   gs = new wxGridSizer(5, 4, 3, 3);
 
-  gs->Add(new wxButton(this, 1050, wxT("Cls")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT("Bck")), 0, wxEXPAND);
-  gs->Add(new wxStaticText(this, -1, wxT("")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT("Close")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1007, wxT("7")), 0, wxEXPAND); 
-  gs->Add(new wxButton(this, 1008, wxT("8")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1009, wxT("9")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1013, wxT("/")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1004, wxT("4")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1005, wxT("5")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1006, wxT("6")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1012, wxT("*")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1000, wxT("0")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1001, wxT("1")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1002, wxT("2")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1003, wxT("3")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1004, wxT("4")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1005, wxT("5")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1006, wxT("6")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1007, wxT("7")), 0, wxEXPAND); 
+  gs->Add(new wxButton(this, 1008, wxT("8")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1009, wxT("9")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1010, wxT("-")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, 1000, wxT("0")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT(".")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT("=")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1011 , wxT("+")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1012, wxT("*")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1013, wxT("/")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1014, wxT("Close")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1015, wxT("=")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, -1, wxT("Bck")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, -1, wxT(".")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1050, wxT("Cls")), 0, wxEXPAND);
+  gs->Add(new wxStaticText(this, -1, wxT("")), 0, wxEXPAND);
 
   sizer->Add(gs, 1, wxEXPAND);
   SetSizer(sizer);
@@ -42,11 +43,13 @@ GridSizer::GridSizer(const wxString& title)
 }
 
 void GridSizer::onCls (wxCommandEvent& WXUNUSED (event)) {
-	nClicks += 1;
+	display->SetValue("");
+	nClicks += 0;
 	cout <<"Hola " << nClicks << endl;
 }
 
 void GridSizer::onBt0 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("0");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -56,6 +59,7 @@ void GridSizer::onBt0 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt1 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("1");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -65,6 +69,7 @@ void GridSizer::onBt1 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt2 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("2");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -74,6 +79,7 @@ void GridSizer::onBt2 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt3 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("3");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -83,6 +89,7 @@ void GridSizer::onBt3 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt4 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("4");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -92,6 +99,7 @@ void GridSizer::onBt4 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt5 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("5");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -101,6 +109,7 @@ void GridSizer::onBt5 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt6 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("6");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -110,6 +119,7 @@ void GridSizer::onBt6 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt7 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("7");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -119,6 +129,7 @@ void GridSizer::onBt7 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt8 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("8");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -128,6 +139,7 @@ void GridSizer::onBt8 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBt9 (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText("9");
 	nClicks += 1;
 	cout <<"Hola " << nClicks << endl;
 	if (nClicks==1)
@@ -137,27 +149,68 @@ void GridSizer::onBt9 (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 + valor2;
-	cout << "Resultado suma " << total << endl;
-	nClicks = 0;
+	a=(string)display->GetValue();
+	operando1=atoi(a.c_str());
+	display->Clear();
+	operando="+";
+	nClicks=0;
 }
 
 void GridSizer::onBtRes (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 - valor2;
-	cout << "Resultado resta " << total << endl;
-	nClicks = 0;
+	a=(string)display->GetValue();
+	operando1=atoi(a.c_str());
+	display->Clear();
+	operando="-";
+	nClicks=0;
 }
 
 void GridSizer::onBtMul (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 * valor2;
-	cout << "Resultado multiplicacion " << total << endl;
-	nClicks = 0;
+	a=(string)display->GetValue();
+	operando1=atoi(a.c_str());
+	display->Clear();
+	operando="*";
+	nClicks=0;
 }
 
 void GridSizer::onBtDiv (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 / valor2;
-	cout << "Resultado division " << total << endl;
-	nClicks = 0;
+	a=(string)display->GetValue();
+	operando1=atoi(a.c_str());
+	display->Clear();
+	operando="/";
+	nClicks=0;
+}
+
+void GridSizer::onBtClose (wxCommandEvent& WXUNUSED (event)) {
+	destroy();
+}
+
+void GridSizer::onBtTot (wxCommandEvent& WXUNUSED (event)) {
+	if(operando=="+"){
+		b=(string)display->GetValue();
+		operando2=atoi(b.c_str());
+		total=operando1+operando2;
+	}
+	if(operando=="-"){
+		b=(string)display->GetValue();
+		operando2=atoi(b.c_str());
+		total=operando1-operando2;
+	}
+	if(operando=="/"){
+		b=(string)display->GetValue();
+		operando2=atoi(b.c_str());
+		total=operando1/operando2;
+	}
+	if(operando=="*"){
+		 b=(string)display->GetValue();
+		operando2=atoi(b.c_str());
+		total=operando1*operando2;
+	}
+	cout << "Resultado " << total << endl;
+	ostringstream convert;
+	string resul;
+	convert<<total;
+	resul=convert.str();
+	display->SetValue(resul);
 }
 
 BEGIN_EVENT_TABLE(GridSizer, wxFrame)
@@ -176,4 +229,6 @@ BEGIN_EVENT_TABLE(GridSizer, wxFrame)
     EVT_BUTTON(1011,  GridSizer::onBtSum)
     EVT_BUTTON(1012,  GridSizer::onBtMul)
     EVT_BUTTON(1013,  GridSizer::onBtDiv)
+    EVT_BUTTON(1014,  GridSizer::onBtClose)
+    EVT_BUTTON(1015,  GridSizer::onBtTot)
 END_EVENT_TABLE()

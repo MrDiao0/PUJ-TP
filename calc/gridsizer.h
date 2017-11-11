@@ -26,6 +26,8 @@ public:
   void onBtSum (wxCommandEvent&);
   void onBtMul (wxCommandEvent&);
   void onBtDiv (wxCommandEvent&);
+  void onBtClose (wxCommandEvent&);
+  void onBtTot (wxCommandEvent);
 
 private:
   int valor1;
