@@ -1,5 +1,6 @@
 #include "gridsizer.h"
 #include <string.h>
+#include <math.h>
 #include <sstream>
 #include <iostream>
 using namespace std;
@@ -32,7 +33,7 @@ GridSizer::GridSizer(const wxString& title)
   gs->Add(new wxButton(this, 1014, wxT("Close")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1015, wxT("=")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1016, wxT("Bck")), 0, wxEXPAND);
-  gs->Add(new wxButton(this, -1, wxT(".")), 0, wxEXPAND);
+  gs->Add(new wxButton(this, 1017, wxT(".")), 0, wxEXPAND);
   gs->Add(new wxButton(this, 1050, wxT("Cls")), 0, wxEXPAND);
   gs->Add(new wxStaticText(this, -1, wxT("")), 0, wxEXPAND);
 
@@ -151,7 +152,13 @@ void GridSizer::onBt9 (wxCommandEvent& WXUNUSED (event)) {
 
 void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
 	a=(string)display->GetValue();
-	operando1=atoi(a.c_str());
+	for(int i=0;i<a.size();i++){
+	if(a[i] == '.'){
+		operando1=atof(a.c_str());
+	}else{
+		operando1=atoi(a.c_str());
+	}
+	}
 	display->Clear();
 	operando="+";
 	nClicks=0;
@@ -159,7 +166,13 @@ void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
 
 void GridSizer::onBtRes (wxCommandEvent& WXUNUSED (event)) {
 	a=(string)display->GetValue();
-	operando1=atoi(a.c_str());
+	for(int i=0;i<a.size();i++){
+	if(a[i] == '.'){
+		operando1=atof(a.c_str());
+	}else{
+		operando1=atoi(a.c_str());
+	}
+	}
 	display->Clear();
 	operando="-";
 	nClicks=0;
@@ -167,7 +180,13 @@ void GridSizer::onBtRes (wxCommandEvent& WXUNUSED (event)) {
 
 void GridSizer::onBtMul (wxCommandEvent& WXUNUSED (event)) {
 	a=(string)display->GetValue();
-	operando1=atoi(a.c_str());
+	for(int i=0;i<a.size();i++){
+	if(a[i] == '.'){
+		operando1=atof(a.c_str());
+	}else{
+		operando1=atoi(a.c_str());
+	}
+	}
 	display->Clear();
 	operando="*";
 	nClicks=0;
@@ -175,11 +194,18 @@ void GridSizer::onBtMul (wxCommandEvent& WXUNUSED (event)) {
 
 void GridSizer::onBtDiv (wxCommandEvent& WXUNUSED (event)) {
 	a=(string)display->GetValue();
-	operando1=atoi(a.c_str());
+	for(int i=0;i<a.size();i++){
+	if(a[i] == '.'){
+		operando1=atof(a.c_str());
+	}else{
+		operando1=atoi(a.c_str());
+	}
+	}
 	display->Clear();
 	operando="/";
 	nClicks=0;
 }
+
 
 void GridSizer::onBtClose (wxCommandEvent& WXUNUSED (event)) {
 	Destroy();
@@ -188,24 +214,49 @@ void GridSizer::onBtClose (wxCommandEvent& WXUNUSED (event)) {
 void GridSizer::onBtTot (wxCommandEvent& WXUNUSED (event)) {
 	if(operando=="+"){
 		b=(string)display->GetValue();
-		operando2=atoi(b.c_str());
+		for(int i=0;i<b.size();i++){
+		if(b[i] == ','){
+		operando2=atof(b.c_str());
+		}else{
+			operando2=atoi(b.c_str());
+		}
+		}
 		total=operando1+operando2;
 	}
 	if(operando=="-"){
 		b=(string)display->GetValue();
-		operando2=atoi(b.c_str());
+		for(int i=0;i<b.size();i++){
+		if(b[i] == '.'){
+			operando2=atof(b.c_str());
+		}else{
+			operando2=atoi(b.c_str());
+		}
+		}
 		total=operando1-operando2;
 	}
 	if(operando=="/"){
 		b=(string)display->GetValue();
-		operando2=atoi(b.c_str());
+		for(int i=0;i<b.size();i++){
+		if(b[i] == '.'){
+			operando2=atof(b.c_str());
+		}else{
+			operando2=atoi(b.c_str());
+		}
+		}
 		total=operando1/operando2;
 	}
 	if(operando=="*"){
 		 b=(string)display->GetValue();
-		operando2=atoi(b.c_str());
-		total=operando1*operando2;
+		for(int i=0;i<b.size();i++){
+		if(b[i] == '.'){
+			operando2=atof(b.c_str());
+		}else{
+			operando2=atoi(b.c_str());
+		}
+		}
+		total=pow(operando1,operando2);
 	}
+	
 	cout << "Resultado " << total << endl;
 	ostringstream convert;
 	string resul;
@@ -224,6 +275,10 @@ void GridSizer::onBtBck (wxCommandEvent& WXUNUSED (event)) {
 		if (b.size () > 0)  b.resize (b.size () - 1);
 		display->SetValue(b);
 	}
+}
+
+void GridSizer::onBtDot (wxCommandEvent& WXUNUSED (event)) {
+	display->AppendText(".");
 }
 
 BEGIN_EVENT_TABLE(GridSizer, wxFrame)
@@ -245,4 +300,5 @@ BEGIN_EVENT_TABLE(GridSizer, wxFrame)
     EVT_BUTTON(1014,  GridSizer::onBtClose)
     EVT_BUTTON(1015,  GridSizer::onBtTot)
     EVT_BUTTON(1016,  GridSizer::onBtBck)
+    EVT_BUTTON(1017,  GridSizer::onBtDot)
 END_EVENT_TABLE()
